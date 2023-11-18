@@ -54,9 +54,15 @@ class _SimpleSelect extends State<SimpleSelect> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           label,
-          new DropdownButton<String>(
+          new DropdownButtonFormField<String>(
             hint: new Text("Select a user"),
             value: item['value'],
+            decoration: item['decoration'] ??
+                widget.decorations[item['key']] ??
+                new InputDecoration(
+                  hintText: item['placeholder'] ?? "",
+                  helperText: item['helpText'] ?? "",
+                ),
             onChanged: (String? newValue) {
               setState(() {
                 item['value'] = newValue;
