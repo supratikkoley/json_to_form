@@ -17,6 +17,7 @@ class JsonSchema extends StatefulWidget {
     this.keyboardTypes = const {},
     this.buttonSave,
     this.actionSave,
+    this.bottomPadding,
   });
 
   final Map errorMessages;
@@ -30,6 +31,7 @@ class JsonSchema extends StatefulWidget {
   final Function? actionSave;
   final ValueChanged<dynamic> onChanged;
   final AutovalidateMode? autovalidateMode;
+  final double? bottomPadding;
 
   @override
   _CoreFormState createState() =>
@@ -134,6 +136,10 @@ class _CoreFormState extends State<JsonSchema> {
           validations: widget.validations,
           keyboardTypes: widget.keyboardTypes,
         ));
+      }
+
+      if (widget.bottomPadding != null) {
+        listWidget.add(SizedBox(height: widget.bottomPadding));
       }
     }
 

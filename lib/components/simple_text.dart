@@ -37,7 +37,6 @@ class _SimpleText extends State<SimpleText> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     item = widget.item;
   }
@@ -48,7 +47,7 @@ class _SimpleText extends State<SimpleText> {
     if (Fun.labelHidden(item)) {
       label = new Container(
         child: new Text(
-          item['label'],
+          item['label'] ?? '',
           style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
         ),
       );
